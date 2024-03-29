@@ -1,0 +1,21 @@
+{
+  "name": "onthatass-auto-campaigns-bin",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build --compile --minify --sourcemap src/index.ts --outfile out/onthatass-auto-campaigns-bin",
+    "start": "bun run src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.2.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
+    "winston": "^3.13.0"
+  }
+}
