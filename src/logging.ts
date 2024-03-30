@@ -12,13 +12,7 @@ export function setupLogger() {
       winston.format.json(),
     ),
     defaultMeta: { app: 'onthatass-auto-campaigns' },
-    transports: [
-      new winston.transports.File({
-        filename: 'logs/error.log',
-        level: 'error',
-      }),
-      new winston.transports.File({ filename: 'logs/combined.log' }),
-    ],
+    transports: [new winston.transports.Console()],
   });
 
   if (process.env.NODE_ENV !== 'production') {
