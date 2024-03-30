@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: onthatass-auto-campaigns
+data:
+  ONTHATASS_EMAIL: base64-encoded-email
+  ONTHATASS_PASSWORD: base64-encoded-password
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: onthatass-auto-campaigns
+spec:
+  schedule: '0 12 15 * *'
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: onthatass-auto-campaigns
+              image: ghcr.io/jamezrin/onthatass-auto-campaigns:latest
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - secretRef:
+                    name: onthatass-auto-campaigns
+          imagePullSecrets:
+            - name: ghcr-registry
+          restartPolicy: OnFailure
