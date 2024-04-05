@@ -1,9 +1,9 @@
 {
-  "name": "onthatass-auto-campaigns-bin",
+  "name": "onthebuns-auto-campaigns-bin",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build --compile --minify --sourcemap src/index.ts --outfile out/onthatass-auto-campaigns-bin",
+    "build": "bun build --compile --minify --sourcemap src/index.ts --outfile out/onthebuns-auto-campaigns-bin",
     "start": "bun run src/index.ts"
   },
   "devDependencies": {

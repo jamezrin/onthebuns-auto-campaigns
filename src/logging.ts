@@ -32,7 +32,7 @@ export function setupLogger() {
   const logger = winston.createLogger({
     level: 'info',
     format: process.env.NODE_ENV === 'production' ? prdFormat : devFormat,
-    defaultMeta: { app: 'onthatass-auto-campaigns' },
+    defaultMeta: { app: 'onthebuns-auto-campaigns' },
     transports: [new winston.transports.Console()],
   });
 

@@ -44,7 +44,7 @@ async function requestAuth(
 }
 
 const logger = setupLogger();
-logger.info('Starting OnThatAss Auto Campaigns');
+logger.info('Starting OnTheBuns Auto Campaigns');
 
 function ensureEnvVar(varName: string): string {
   const value = process.env[varName];
@@ -188,4 +188,4 @@ if (process.env.ONTHATASS_CAMPAIGN_ID) {
   );
 }
 
-logger.info('Finished OnThatAss Auto Campaigns');
+logger.info('Finished OnTheBuns Auto Campaigns');

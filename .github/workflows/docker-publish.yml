@@ -38,7 +38,7 @@ jobs:
             runner: ubuntu-22.04
           - type: linux-arm64
             docker-platform: linux/arm64
-            runner: arc-jamezrin-onthatass-auto-campaigns-set
+            runner: arc-jamezrin-onthebuns-auto-campaigns-set
 
     runs-on: ${{ matrix.runner }}
 

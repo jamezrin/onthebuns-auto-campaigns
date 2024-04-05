@@ -1,3 +1,3 @@
-# onthatass-auto-campaigns
+# onthebuns-auto-campaigns
 
 Work in progress

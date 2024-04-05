@@ -31,7 +31,7 @@ FROM debian:bookworm-slim AS release
 WORKDIR /app
 RUN rm -rf /var/lib/apt/lists/*
 RUN groupadd -r app && useradd --no-log-init -r -g app app
-COPY --from=prerelease /usr/src/app/out/onthatass-auto-campaigns-bin /app/onthatass-auto-campaigns-bin
+COPY --from=prerelease /usr/src/app/out/onthebuns-auto-campaigns-bin /app/onthebuns-auto-campaigns-bin
 
 USER app
-ENTRYPOINT [ "/app/onthatass-auto-campaigns-bin" ]
+ENTRYPOINT [ "/app/onthebuns-auto-campaigns-bin" ]
