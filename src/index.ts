@@ -16,6 +16,8 @@ import {
 } from './constants';
 import { createGraphQLClient } from './graphql-client';
 
+const dryRunMode = process.env.ONTHATASS_DRY_RUN === 'true';
+
 type AuthResponse = {
   token: string;
   token_expires_at: number;
@@ -113,6 +115,16 @@ async function useCampaignInMembership(
   membership: MembershipInfo,
 ) {
   logger.info('Using campaign %d in membership %d', campaignId, membership._id);
+
+  if (dryRunMode) {
+    logger.warn(
+      'Dry run mode enabled, the campaign was not actually used',
+      campaignId,
+      membership._id,
+    );
+    return;
+  }
+
   await doUseCampaignMember(graphqlClient, campaignId, membership.id)
     .then((response) => {
       logger.info(
