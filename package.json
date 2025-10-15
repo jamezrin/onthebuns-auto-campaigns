@@ -1,6 +1,7 @@
 {
   "name": "onthebuns-auto-campaigns-bin",
   "module": "src/index.ts",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "bun build --compile --minify --sourcemap src/index.ts --outfile out/onthebuns-auto-campaigns-bin",
