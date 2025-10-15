@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "graphql": "^16.11.0",
-    "graphql-request": "^6.1.0",
+    "graphql-request": "^7.0.0",
     "winston": "^3.18.3"
   }
 }
