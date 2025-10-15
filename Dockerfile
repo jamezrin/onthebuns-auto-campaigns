@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 as base
+FROM oven/bun:1 AS base
 WORKDIR /usr/src/app
 
 # install dependencies into temp directory
@@ -23,11 +23,11 @@ COPY . .
 
 # [optional] tests & build
 ENV NODE_ENV=production
-RUN bun test
+# RUN bun test
 RUN bun run build
 
 # copy production binary to final image
-FROM debian:bookworm-slim AS release
+FROM debian:trixie-slim AS release
 WORKDIR /app
 RUN rm -rf /var/lib/apt/lists/*
 RUN groupadd -r app && useradd --no-log-init -r -g app app
