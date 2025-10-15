@@ -74,22 +74,26 @@ export type MembershipsResponse = {
         name: string;
         hostNamePrefix: string;
       };
-      productGroupSize: {
-        _id: number;
-        id: string;
-        size: {
-          _id: number;
-          id: string;
-          label: string;
-        };
-        productGroup: {
-          _id: number;
-          id: string;
-          category: number;
-          name: string;
-          displayName: string;
-          slug: string;
-        };
+      productGroupSizes: {
+        edges: {
+          node: {
+            _id: number;
+            id: string;
+            size: {
+              _id: number;
+              id: string;
+              label: string;
+            };
+            productGroup: {
+              _id: number;
+              id: string;
+              category: number;
+              name: string;
+              displayName: string;
+              slug: string;
+            };
+          };
+        }[];
       };
     };
   }[];
@@ -147,7 +151,8 @@ export async function fetchMembershipCancelMonths<
 
 export type UseCampaignMemberResponse = {
   member: {
-    campaignStay: number;
+    _id: number;
+    id: string;
   };
 };
 
