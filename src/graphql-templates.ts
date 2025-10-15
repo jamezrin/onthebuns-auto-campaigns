@@ -160,22 +160,28 @@ export const membershipsQuery = gql`
             hostNamePrefix
             __typename
           }
-          productGroupSize {
-            _id
-            id
-            size {
-              _id
-              id
-              label
-              __typename
-            }
-            productGroup {
-              _id
-              id
-              category
-              name
-              displayName
-              slug
+          productGroupSizes {
+            edges {
+              node {
+                _id
+                id
+                size {
+                  _id
+                  id
+                  label
+                  __typename
+                }
+                productGroup {
+                  _id
+                  id
+                  category
+                  name
+                  displayName
+                  slug
+                  __typename
+                }
+                __typename
+              }
               __typename
             }
             __typename
@@ -241,7 +247,8 @@ export const useCampaignMemberMutation = gql`
   mutation Member($id: ID!, $campaignId: Int!) {
     useCampaignMember(input: { id: $id, campaignId: $campaignId }) {
       member {
-        campaignStay
+        _id
+        id
         __typename
       }
       __typename

@@ -63,6 +63,8 @@ const authResponse = await requestAuth(
   ensureEnvVar('ONTHATASS_PASSWORD'),
 );
 
+logger.info('Auth response:', authResponse);
+
 logger.info('Creating GraphQL client');
 const graphqlClient = createGraphQLClient(authResponse.token);
 
@@ -82,13 +84,18 @@ logger.debug('Memberships response', { data: memberships });
 logger.info('Found %d memberships', memberships.members.edges.length);
 
 memberships.members.edges.forEach(({ node: membership }, index) => {
-  logger.info(
-    'Membership %d: "%s" size %s (id %d)',
-    index + 1,
-    membership.productGroupSize.productGroup.displayName,
-    membership.productGroupSize.size.label,
-    membership._id,
-  );
+  const productGroupSize = membership.productGroupSizes.edges[0]?.node;
+  if (productGroupSize) {
+    logger.info(
+      'Membership %d: "%s" size %s (id %d)',
+      index + 1,
+      productGroupSize.productGroup.displayName,
+      productGroupSize.size.label,
+      membership._id,
+    );
+  } else {
+    logger.info('Membership %d: No product group size (id %d)', index + 1, membership._id);
+  }
 });
 
 logger.info('Requesting active campaigns');
