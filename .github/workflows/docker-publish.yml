@@ -67,7 +67,7 @@ jobs:
 
             - name: Build and push by digest
               id: build
-              uses: docker/build-push-action@090ca155fc9b214cbcac536c450455a0e96f52c6
+              uses: docker/build-push-action@9e436ba9f2d7bcd1d038c8e55d039d37896ddc5d
               with:
                   context: .
                   platforms: ${{ matrix.docker-platform }}
